@@ -1,0 +1,14 @@
+<?xml version="1.0"?>
+
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+  <!-- This states that any request for the KraApiManagement Interface Could be satisfied by the classes defined on TimsApi -->
+  <preference for="ThemeFactory\Tims\Api\KraApiManagementInterface" type="ThemeFactory\Tims\Model\TimsApi" />
+  <!-- This states that any request for the KraInterface Could be satisfied by the classes defined on TimsFetch -->
+  <preference for="ThemeFactory\Tims\Api\Data\KraInterface" type="ThemeFactory\Tims\Model\TimsFetch" />
+  <!-- Overiding the normal Magento Invoice with mine -->
+  <preference for="Magento\Sales\Model\Order\Pdf\Invoice" type="ThemeFactory\Tims\Model\Order\Pdf\Invoice" />
+  <!-- End of Overiding the normal Magento Invoice with mine -->
+  <!-- Overiding the normal Magento CreditMemo with mine -->
+  <preference for="Magento\Sales\Model\Order\Pdf\Creditmemo" type="ThemeFactory\Tims\Model\Order\Pdf\Creditmemo" />
+  <!-- End of Overiding the normal Magento CreditMemo with mine -->
+</config>

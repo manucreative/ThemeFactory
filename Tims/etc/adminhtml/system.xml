@@ -1,0 +1,91 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Config:etc/system_file.xsd">
+    <system>
+        <!-- Side tab label -->
+        <tab id="tims_tab_id" translate="label" sortOrder="1">
+            <label>Theme Factory</label>
+        </tab>
+        <!-- End of side tab label -->
+
+        <!-- Start of Tims Configuration Section-->
+        <section id="tims_section_id" translate="label" type="text" sortOrder="0" showInDefault="1" showInWebsite="1" showInStore="1">
+            <class>separator-top</class>
+            <label>TIMS Configuration</label>
+
+            <!-- Tims tab id -->
+            <tab>tims_tab_id</tab>
+            <!-- End of tims tab id -->
+
+            <resource>ThemeFactory_Tims::tims_resource_id</resource>
+
+            <!-- Module Status-->
+            <group id="test_group_id" translate="label" type="text" sortOrder="0" showInDefault="1" showInWebsite="1" showInStore="1">
+                <label>Module Status</label>
+                
+                <field id="enabled" translate="label comment" type="select" sortOrder="0" showInDefault="1" showInWebsite="1" showInStore="1" canRestore="1">
+                    <label>Enabled</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+            </group>
+
+            <!-- End of Module Status -->
+
+            <!-- View Library Functions -->
+
+            <!-- <group id="check_lib_id" translate="label" type="text" sortOrder="0" showInDefault="1" showInWebsite="1" showInStore="1">
+                <label>Check Library Functions</label>
+                <field id="listbutton" translate="label" sortOrder="0" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>You are using version: 1.1.1 </label> 
+                    <frontend_model>TimsKra\TimsModule\Block\System\Config\Form\Button</frontend_model>
+                </field>
+            </group> -->
+            
+            <!-- Server Settings -->
+
+            <group id="server_group_id" translate="label" type="text" sortOrder="1" showInDefault="1" showInWebsite="1" showInStore="1">
+                <label>ZFP Server Settings</label>
+
+                <field id="server_address_id" translate="label comment" type="text" sortOrder="1" showInDefault="1" showInWebsite="1" showInStore="1" canRestore="1">
+                    <label>Enter Zfp Server Address:</label>
+                    <comment>Example: Enter "localhost" as Address</comment>
+                    <!-- <comment>Use {{name}} as Product Name placeholder</comment> -->
+                </field>
+
+                <field id="server_port_id" translate="label comment" type="text" sortOrder="1" showInDefault="1" showInWebsite="1" showInStore="1" canRestore="1">
+                    <label>Enter Zfp Server Port:</label>
+                    <comment>Example: Enter "4444" as Port</comment>
+                </field>
+            </group>
+
+            <!-- End of Server Sections -->
+
+            <!-- Tcp Settings -->
+            <group id="tcp_group_id" translate="label" type="text" sortOrder="2" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Tims Device TCP Settings</label>
+                    <field id="tcp_ip_id" translate="label" sortOrder="2" type="text" showInDefault="1" showInWebsite="1" showInStore="1">
+                        <label>Enter ip address. Example 192.16.0.0 </label>
+                    </field>
+                    <field id="tcp_port_id" translate="label" sortOrder="2" type="text" showInDefault="1" showInWebsite="1" showInStore="1">
+                        <label>Enter port address. Example 8000 </label>
+                    </field>
+                    <field id="tcp_pass_id" translate="label" sortOrder="2" type="text" showInDefault="1" showInWebsite="1" showInStore="1">
+                        <label>Enter password. Example **** </label>
+                    </field>
+            </group>
+            <!-- End of TCP settings -->
+
+            <!-- Device Serial Settings -->
+            <group id="device_serial_id" translate="label" type="text" sortOrder="3" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Device Serial Details</label>
+                    <field id="device_Serial_port" translate="label" sortOrder="3" type="text" showInDefault="1" showInWebsite="1" showInStore="1">
+                        <label>Enter serial port. Example COM1</label>
+                    </field>
+                    <field id="device_serial_baud" translate="label" sortOrder="3" type="text" showInDefault="1" showInWebsite="1" showInStore="1">
+                        <label>Enter baud. Example 115200</label>
+                    </field>
+            </group>
+            <!-- End of Device Serial Settings -->            
+        </section>
+        <!-- End of Tims Configuration Section-->
+    </system>
+</config>

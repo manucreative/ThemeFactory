@@ -1,0 +1,8 @@
+<?xml version="1.0"?>
+
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+    <!-- <preference for="ThemeFactory\QrPrint\Api\Data\InvoiceDataInterface" type="ThemeFactory\QrPrint\Api\InvoiceRepository" /> -->
+    <!-- <preference for="ThemeFactory\QrInvoice\Api\InvoiceDataInterface" type="ThemeFactory\QrPrint\Model\InvoiceData" /> -->
+    <preference for="ThemeFactory\QrInvoice\Api\InvoiceNumberByOrderNumberInterface" type="ThemeFactory\QrInvoice\Model\InvoiceNumberByOrderNumber" />
+
+</config>
