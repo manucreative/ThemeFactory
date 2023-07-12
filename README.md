@@ -11,7 +11,6 @@
 
 #### For more check this article: https://askubuntu.com/questions/8653/how-to-keep-processes-running-after-ending-ssh-session
 
-
 ## If you wish to run /home/master/bin/zfplabserver in background - just run it starting with nohup:
   nohup  /home/master/bin/zfplabserver.
 ## Use the following path to deploy the application
