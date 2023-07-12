@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- Add the column "control_unit_serial_no,control_unit_invoice_no,control_unit_date_and_time, qr_code_link" (Custom Column) to the sales invoice grid. -->
+<listing xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Ui:etc/ui_configuration.xsd">
+    <columns name="sales_order_invoice_columns">
+
+    <!-- Control Unit Serial Number -->
+        <column name="control_unit_serial_no">
+            <argument name="data" xsi:type="array">
+                <item name="config" xsi:type="array">
+                    <item name="filter" xsi:type="string">Control Unit Serial Number</item>
+                    <item name="label" xsi:type="string" translate="true">Control Unit Serial Number</item>
+                </item>
+            </argument>
+        </column>
+    <!-- End Control Unit Serial Number -->
+
+    <!-- Control Unit Invoice Number -->
+        <column name="control_unit_invoice_no">
+            <argument name="data" xsi:type="array">
+                <item name="config" xsi:type="array">
+                    <!-- <item name="filter" xsi:type="string">Control Unit Invoice Number</item> -->
+                    <item name="label" xsi:type="string" translate="true">Control Unit Invoice Number</item>
+                </item>
+            </argument>
+        </column>
+    <!-- End Control Unit Invoice Number -->
+
+    <!-- Control Unit Date and Time -->
+        <column name="control_unit_date_and_time">
+            <argument name="data" xsi:type="array">
+                <item name="config" xsi:type="array">
+                    <!-- <item name="filter" xsi:type="string">Control Unit Date and Time</item> -->
+                    <item name="label" xsi:type="string" translate="true">Control Unit Date and Time</item>
+                </item>
+            </argument>
+        </column>
+    <!-- End Control Unit Date and Time -->
+
+    <!-- Qr Code Link -->
+        <column name="qr_code_link" component="Magento_Ui/js/grid/columns/thumbnail" class="ThemeFactory\Tims\Ui\Component\Listing\Column\Image">
+            <argument name="data" xsi:type="array">
+                <item name="config" xsi:type="array">
+                <!-- https://webkul.com/blog/display-thumbnail-in-admin-grid-magento-2-0/ follow the link to learn more on thumbnails -->
+                    <!-- <item name="filter" xsi:type="string">Control Unit Serial Number</item> -->
+                    <item name="component" xsi:type="string">Magento_Ui/js/grid/columns/thumbnail</item>
+                    <item name="sortable" xsi:type="boolean">false</item>
+                    <item name="altField" xsi:type="string">name</item>
+                    <item name="has_preview" xsi:type="string">1</item>
+                    <item name="label" xsi:type="string" translate="true">QR Code</item>
+                    <item name="sortOrder" xsi:type="number">20</item>
+                </item>
+            </argument>
+        </column>
+    <!-- Qr Code Link -->
+
+    </columns>
+</listing>
