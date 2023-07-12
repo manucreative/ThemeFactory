@@ -1,5 +1,7 @@
 <?php
-
+/*
+&copy Manu Creative Dev.
+*/
 namespace ThemeFactory\QrInvoice\Api;
 
 use Magento\Sales\Api\Data\InvoiceInterface;
@@ -38,7 +40,6 @@ class InvoiceNumberByOrderNumber implements InvoiceNumberByOrderNumberInterface
         if (!$order) {
             throw new \Magento\Framework\Exception\NoSuchEntityException(__('Order not found'));
         }
-
         /** @var InvoiceInterface $invoice */
         $invoice = $this->invoiceRepository->getByOrderId($order->getEntityId());
 
