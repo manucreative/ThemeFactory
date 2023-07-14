@@ -19,7 +19,7 @@
 # Build PWA-POS with Theme Factory's extensions
 
 ## For the changing of the receipt =>
-  1. Change the template receipt and add the barcode you want: 
+  1. Change the template receipt and add the barcode you want:
       /Users/bqc/PhpstormProjects/alladin.co.ke/Source/client/pos/src/view/component/print/PrintComponent.js
   2. Then build POS and deploy, following below:
 
@@ -31,7 +31,7 @@
   - To build POS please run “npm run build” in folder Source/client/pos
   - Please copy all data in folder Source/client/pos/build to folder Source/server/app/code/Magestore/- Webpos/build/apps/pos/ (If it doesn't have that folder please create it).
   - Run command line to install all extension of Magestore:
-  - php bin/magento setup:upgrade; 
+  - php bin/magento setup:upgrade;
   - php bin/magento setup:di:compile;
   - php bin/magento cache:flush;
   - Please run the command line “php bin/magento webpos:deploy” to deploy POS.
