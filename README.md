@@ -11,9 +11,9 @@
 
 #### For more check this article: https://askubuntu.com/questions/8653/how-to-keep-processes-running-after-ending-ssh-session
 
-## If you wish to run /home/master/bin/zfplabserver in background - just run it starting with nohup:
+### If you wish to run /home/master/bin/zfplabserver in background - just run it starting with nohup:
   nohup  /home/master/bin/zfplabserver.
-## Use the following path to deploy the application
+### Use the following path to deploy the application
     app\code
 
 # Build PWA-POS with Theme Factory's extensions
@@ -31,8 +31,12 @@
   - To build POS please run “npm run build” in folder Source/client/pos
   - Please copy all data in folder Source/client/pos/build to folder Source/server/app/code/Magestore/- Webpos/build/apps/pos/ (If it doesn't have that folder please create it).
   - Run command line to install all extension of Magestore:
+  - php bin/magento deploy:mode:set developer;
+  - chmod -R 777 pub/ var/ app/
   - php bin/magento setup:upgrade;
   - php bin/magento setup:di:compile;
+  - php bin/magento setup:static-content:deploy -f
   - php bin/magento cache:flush;
+  - php bin/magento cache:clean;
   - Please run the command line “php bin/magento webpos:deploy” to deploy POS.
 
