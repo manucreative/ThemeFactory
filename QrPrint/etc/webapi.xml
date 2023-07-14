@@ -5,8 +5,6 @@
         <service class="ThemeFactory\QrPrint\Api\InvoiceDataInterface" method="getInvoiceData"/>
         <resources>
             <resource ref="Magento_Sales::sales"/>
-            <!-- <resource ref="Magento_Sales::sales"/> -->
         </resources>
     </route>
 </routes>
-
