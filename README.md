@@ -41,5 +41,5 @@
   - Please run the command line “php bin/magento webpos:deploy” to deploy POS.
 
 ## Run the following to convert POS order To magento adding $ after the command
- -php bin/magento queue:consumers:start magestore_pos_process_order.convert.consumer &
+  - php bin/magento queue:consumers:start magestore_pos_process_order.convert.consumer &
 
