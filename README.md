@@ -40,6 +40,11 @@
   - php bin/magento cache:clean;
   - Please run the command line “php bin/magento webpos:deploy” to deploy POS.
 
-## Run the following to convert POS order To magento adding $ after the command
+## Run the following to check the CRON consumers list, This applies to Magento POS order conversion and other Consumers.
+  - php bin/magento queue:consumers:list;
+#### Then Run the following
+  - php bin/magento queue:consumers:start
+    #### The above is for Starting the List at once, and you can & to run the consumer in the background. for Example;
   - php bin/magento queue:consumers:start magestore_pos_process_order.convert.consumer &
+    #### The above command will convert POS orders to magento orders always in the background.
 
