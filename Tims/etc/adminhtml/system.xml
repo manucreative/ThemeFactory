@@ -21,7 +21,7 @@
             <!-- Module Status-->
             <group id="test_group_id" translate="label" type="text" sortOrder="0" showInDefault="1" showInWebsite="1" showInStore="1">
                 <label>Module Status</label>
-                
+
                 <field id="enabled" translate="label comment" type="select" sortOrder="0" showInDefault="1" showInWebsite="1" showInStore="1" canRestore="1">
                     <label>Enabled</label>
                     <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
@@ -35,11 +35,11 @@
             <!-- <group id="check_lib_id" translate="label" type="text" sortOrder="0" showInDefault="1" showInWebsite="1" showInStore="1">
                 <label>Check Library Functions</label>
                 <field id="listbutton" translate="label" sortOrder="0" showInDefault="1" showInWebsite="1" showInStore="1">
-                    <label>You are using version: 1.1.1 </label> 
+                    <label>You are using version: 1.1.1 </label>
                     <frontend_model>TimsKra\TimsModule\Block\System\Config\Form\Button</frontend_model>
                 </field>
             </group> -->
-            
+
             <!-- Server Settings -->
 
             <group id="server_group_id" translate="label" type="text" sortOrder="1" showInDefault="1" showInWebsite="1" showInStore="1">
@@ -68,7 +68,7 @@
                     <field id="tcp_port_id" translate="label" sortOrder="2" type="text" showInDefault="1" showInWebsite="1" showInStore="1">
                         <label>Enter port address. Example 8000 </label>
                     </field>
-                    <field id="tcp_pass_id" translate="label" sortOrder="2" type="text" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <field id="tcp_pass_id" translate="label" sortOrder="2" type="password" showInDefault="1" showInWebsite="1" showInStore="1">
                         <label>Enter password. Example **** </label>
                     </field>
             </group>
@@ -84,7 +84,7 @@
                         <label>Enter baud. Example 115200</label>
                     </field>
             </group>
-            <!-- End of Device Serial Settings -->            
+            <!-- End of Device Serial Settings -->
         </section>
         <!-- End of Tims Configuration Section-->
     </system>
