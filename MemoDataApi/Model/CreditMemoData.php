@@ -4,6 +4,7 @@ namespace ThemeFactory\MemoDataApi\Model;
 
 use ThemeFactory\MemoDataApi\Api\CreditMemoDataInterface;
 use Magento\Framework\App\ResourceConnection;
+use Magento\Framework\Exception\NoSuchEntityException;
 
 class CreditMemoData implements CreditMemoDataInterface
 {
