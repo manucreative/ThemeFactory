@@ -7,7 +7,7 @@
 -->
 <routes xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:Webapi/etc/webapi.xsd">
     <route url="/V2/creditmemo/details/:orderNumber" method="GET">
-        <service class="Vendor\Module\Api\CreditMemoInterface" method="getCreditMemoNumberByOrderNumber"/>
+        <service class="ThemeFactory\QrCreditmemo\Api\CreditMemoInterface" method="getCreditMemoNumberByOrderNumber"/>
         <resources>
             <resource ref="Magento_Sales::sales"/>
         </resources>
