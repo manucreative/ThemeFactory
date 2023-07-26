@@ -27,7 +27,7 @@ class CreditMemoData implements CreditMemoDataInterface
         )->joinLeft(
             ['sales_creditmemo_grid' => $this->connection->getTableName('sales_creditmemo_grid')],
             'sales_creditmemo.entity_id = sales_creditmemo_grid.entity_id',
-            ['control_unit_serial_no', 'control_unit_credit_memo_no', 'qr_code_link']
+            ['control_unit_serial_no', 'control_unit_credit_memo_no', 'control_unit_date_and_time', 'qr_code_link']
         )->where('sales_creditmemo.increment_id = ?', $creditMemoNumber);
 
         $data = $this->connection->fetchRow($select);
@@ -39,6 +39,7 @@ class CreditMemoData implements CreditMemoDataInterface
             $creditMemoData['order_id'] = $data['order_id'];
             $creditMemoData['control_unit_serial_no'] = $data['control_unit_serial_no'];
             $creditMemoData['control_unit_invoice_no'] = $data['control_unit_credit_memo_no'];
+            $creditMemoData['control_unit_date_and_time'] = $data['control_unit_date_and_time'];
             $creditMemoData['qr_code_link'] = $data['qr_code_link'];
         } else {
             throw new NoSuchEntityException(__('Credit memo with increment_id "%1" does not exist.', $creditMemoNumber));
