@@ -1,6 +1,46 @@
-<div class="field required">
-    <label for="telephone" class="label"><span><?= __('Phone Number') ?></span></label>
-    <div class="control">
-        <input type="text" name="telephone" id="telephone" title="<?= __('Phone Number') ?>" class="input-text" data-validate="{required:true}">
-    </div>
-</div>
+<form class="form create account form-create-account" action="<?= $block->escapeUrl($block->getPostActionUrl()) ?>" method="post" id="form-validate" enctype="multipart/form-data" autocomplete="off">
+    <fieldset class="fieldset create info">
+        <!-- First Name -->
+        <div class="field required">
+            <label for="firstname" class="label"><span><?= __('First Name') ?></span></label>
+            <div class="control">
+                <input type="text" name="firstname" id="firstname" value="<?= $block->escapeHtmlAttr($block->getFormData()->getFirstname()) ?>" title="<?= __('First Name') ?>" class="input-text" data-validate="{required:true}">
+            </div>
+        </div>
+
+        <!-- Last Name -->
+        <div class="field required">
+            <label for="lastname" class="label"><span><?= __('Last Name') ?></span></label>
+            <div class="control">
+                <input type="text" name="lastname" id="lastname" value="<?= $block->escapeHtmlAttr($block->getFormData()->getLastname()) ?>" title="<?= __('Last Name') ?>" class="input-text" data-validate="{required:true}">
+            </div>
+        </div>
+
+        <!-- Email Address -->
+        <div class="field required">
+            <label for="email_address" class="label"><span><?= __('Email') ?></span></label>
+            <div class="control">
+                <input type="email" name="email" id="email_address" value="<?= $block->escapeHtmlAttr($block->getFormData()->getEmail()) ?>" title="<?= __('Email') ?>" class="input-text" data-validate="{required:true, 'validate-email':true}">
+            </div>
+        </div>
+
+        <!-- ... Other default form fields ... -->
+
+        <!-- Phone Number -->
+        <div class="field required">
+            <label for="telephone" class="label"><span><?= __('Phone Number') ?></span></label>
+            <div class="control">
+                <input type="text" name="telephone" id="telephone" title="<?= __('Phone Number') ?>" class="input-text" data-validate="{required:true}">
+            </div>
+        </div>
+
+        <!-- ... Any other custom fields ... -->
+
+        <!-- Submit Button -->
+        <div class="actions-toolbar">
+            <div class="primary">
+                <button type="submit" class="action submit primary" title="<?= __('Create an Account') ?>"><span><?= __('Create an Account') ?></span></button>
+            </div>
+        </div>
+    </fieldset>
+</form>
