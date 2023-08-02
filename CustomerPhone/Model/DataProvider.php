@@ -1,4 +1,5 @@
 <?php
+
 namespace ThemeFactory\CustomerPhone\Model;
 use Magento\Customer\Model\DataProvider as CustomerDataProvider;
 
