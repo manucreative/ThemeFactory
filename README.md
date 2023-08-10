@@ -31,20 +31,29 @@
   - To build POS please run “npm run build” in folder Source/client/pos
   - Please copy all data in folder Source/client/pos/build to folder Source/server/app/code/Magestore/- Webpos/build/apps/pos/ (If it doesn't have that folder please create it).
   - Run command line to install all extension of Magestore:
-  - php bin/magento deploy:mode:set developer;
-  - chmod -R 777 pub/ var/ app/
-  - php bin/magento setup:upgrade;
-  - php bin/magento setup:di:compile;
-  - php bin/magento setup:static-content:deploy -f
-  - php bin/magento cache:flush;
-  - php bin/magento cache:clean;
-  - Please run the command line “php bin/magento webpos:deploy” to deploy POS.
+    
+          - php bin/magento deploy:mode:set developer;
+          - chmod -R 777 pub/ var/ app/
+          - php bin/magento setup:upgrade;
+          - php bin/magento setup:di:compile;
+          - php bin/magento setup:static-content:deploy -f
+          - php bin/magento cache:flush;
+          - php bin/magento cache:clean;
+    
+  - Please run the command line
+    
+        php bin/magento webpos:deploy
 
 ## Run the following to check the CRON consumers list, This applies to Magento POS order conversion and other Consumers.
-  - php bin/magento queue:consumers:list;
-#### Then Run the following
-  - php bin/magento queue:consumers:start
-    #### The above is for Starting the List at once, and you can & to run the consumer in the background. for Example;
-  - php bin/magento queue:consumers:start magestore_pos_process_order.convert.consumer &
-    #### The above command will convert POS orders to magento orders always in the background.
+
+    php bin/magento queue:consumers:list;
+    
+### Then Run the following
+            php bin/magento queue:consumers:start
+            
+### The above is for Starting the List at once, and you can begin with **nohup** to run the consumer in the background. for Example;
+    
+           nohup php bin/magento queue:consumers:start magestore_pos_process_order.convert.consumer
+   
+  - The above command will convert POS orders to magento orders always in the background.
 
