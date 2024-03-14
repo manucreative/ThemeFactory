@@ -1,0 +1,9 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+   <!--  <type name="ThemeFactory\ExportInvoices\Controller\Adminhtml\Invoice\Export">
+        <arguments>
+            <argument name="filter" xsi:type="object">Magento\Ui\Component\MassAction\Filter</argument>
+            <argument name="collectionFactory" xsi:type="object">ThemeFactory\ExportInvoices\Model\ResourceModel\Invoice\CollectionFactory</argument>
+        </arguments>
+    </type> -->
+</config>

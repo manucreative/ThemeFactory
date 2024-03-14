@@ -1,0 +1,37 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Copyright © Magento, Inc. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+-->
+<listing xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Ui:etc/ui_configuration.xsd">
+    <listingToolbar name="listing_top">
+        <massaction name="listing_massaction">
+            <action name="invoice_export">
+                <argument name="data" xsi:type="array">
+                    <item name="config" xsi:type="array">
+                        <item name="type" xsi:type="string">invoice_mass</item>
+                        <item name="label" xsi:type="string" translate="true">Export Invoiced Items</item>
+                        <item name="url" xsi:type="url" path="exportInvoices/invoice/export"/>
+                        <item name="confirm" xsi:type="array">
+                            <item name="title" xsi:type="string" translate="true">Export Invoices</item>
+                            <item name="message" xsi:type="string" translate="true">Are you sure to do Export Selected Items?</item>
+                        </item>
+                    </item>
+                </argument>
+            </action>
+        </massaction>
+</listingToolbar>
+        <columns name="sales_order_invoice_columns">
+            <column name="vendor_seller" class="ThemeFactory\ExportInvoices\Ui\Component\Listing\Column\VendorSales" sortOrder="10">
+                <settings>
+                    <dataType>select</dataType>
+                    <sortable>true</sortable>
+                    <label translate="true">Vendor Category</label>
+                </settings>
+            </column>
+        </columns>
+
+</listing>
+
