@@ -120,51 +120,11 @@ class Pay implements ObserverInterface
 
         $this->ReadState();
 
-
-        // // Get invoice data new (Working)
-
-        // $Order = $observer->getData('invoice');
-        //$orderDetails = $Order->getOrder();
-
         $MyInvoices = $observer->getEvent()->getInvoice();
         $orderDetails = $MyInvoices->getOrder();
 
         //Get the order number
         $orderid = $orderDetails->getIncrementId();
-
-        //Get invoice id from order increament id
-
-        // $orderNewDetails = $this->NewOrder->load($orderid);
-        // //$orderDetails = $this->NewOrder->loadByIncrementId($orderid);
-
-        // //if order has invoice
-        // if ($orderNewDetails->hasInvoices()) {
-        //     foreach ($orderDetails->getInvoiceCollection() as $invoiceNum) {
-        //         $invoiceNum->save();
-        //         $invoiceIncrementID = $invoiceNum->getIncrementId();
-        //     }
-        //     $TraderSystemInvNum1 = $invoiceIncrementID;
-        //     $TraderSystemInvNum = $TraderSystemInvNum1;
-        //     // $TraderSystemInvNum = str_pad($TraderSystemInvNum1, 9, '0', STR_PAD_LEFT);
-        // } else {
-        //     foreach ($orderDetails->getInvoiceCollection() as $invoiceNum2) {
-        //         $invoiceNum2->save();
-        //         $invoiceIncrementID2 = $invoiceNum2->getIncrementId();
-        //     }
-
-        //     // $invoiceIncrementID2 = $orderNewDetails->getInvoiceCollection()->getIncrementId();
-        //     $TraderSystemInvNum2 = $invoiceIncrementID2;
-        //     $TraderSystemInvNum = $TraderSystemInvNum2;
-        //     // $TraderSystemInvNum = str_pad($TraderSystemInvNum2, 9, '0', STR_PAD_LEFT);
-
-        //     // $newInvoieDetails = $observer->getData('invoice');
-        //     // $newOrderDetails = $newInvoieDetails->getOrder();
-        //     // $invoiceNum = $newInvoieDetails->getCollection();
-        //     // $invoiceNum = $observer->getOrder()->getCollection();
-        //     // $invoiceIncrementID = $invoiceNum->getIncrementId();
-        //     // $TraderSystemInvNum1 = $invoiceIncrementID + 1;
-        //     // $TraderSystemInvNum = str_pad($TraderSystemInvNum1, 9, '0', STR_PAD_LEFT);
-        // }
 
         $TraderSystemInvNum = $orderid;
         //Get Billing Information/Company information
@@ -179,19 +139,12 @@ class Pay implements ObserverInterface
 
 
         ////////////////////////////////////////////////////////////////////////////////////
-        // Figure this shit later (Client Pin and Exemption Group)
-        //Get Customer Id and Load Data Using Customer Id
         $orderForPinExc = $this->NewOrder->load($orderDetails->getId());
         $CustomerId = $orderForPinExc->getCustomerId();
 
-        //$ClientPinNumber = $orderNewDetails->getVatId();
         $ClientPinNumber = $orderForPinExc->getData('taxvat');
-        //$ClientPinNumber = $BillingInformation->getCustomerTaxvat();
         $ExemptionNumber = $orderForPinExc->getCustomerGroupId();
-        // End of Figure this shit later (Client Pin and Exemption Group)
-        /////////////////////////////////////////////////////////////////////////////////////
 
-        //Now lets open the invoice with the customer data
         $this->OpenInvoice($CompanyName, $ClientPinNumber, $HeadQuarters, $Address, $PostalCodeAndCity, $ExemptionNumber,  $TraderSystemInvNum);
 
         // Getting the order Items
@@ -305,35 +258,7 @@ class Pay implements ObserverInterface
         $logger->info('Receipt Creation Date and Time:- ' . print_r($date, true));
         $logger->info('Control Unit Invoice Number:- ' . print_r($InvoiceNum, true));
         $logger->info('Url Link:- ' . print_r($QRcode, true));
-        // $logger->info('Date:- ' . print_r($date, true));
-        ///////////////////////////////// Test for Observer Functions /////////////////////////////////////////////////////////////////
-        // $logger->info('Api Values:- ' . print_r($data_values, true));
-        // $logger->info('Server Address:- ' . print_r($ServerAddress, true));
-        // $logger->info('Server Tcp Port:- ' . print_r($ServerTcpPort, true));
-        //////////////////////////////// End of test of Observer Functions ////////////////////////////////////////////////////////////
-
-
-
-
-        // Order logger info
-        //$logger->info('Order Data:- ' . print_r($order->getData(), true));
-
-        //End of testing on log file
-
-        // return $this;
-        // } catch (\Exception $e) {
-        //     $this->logger->critical($e->getMessage());
-        // }
-    }
-
-    // We open the object conversion function
-
-    /**
-     * converting protected Objects to Array
-     * 
-     * @param ThemeFactory\Tims\Tremol\CloseReceiptRes $TheObject
-     * @return array
-     */
+       
 
     public function ProtectedToUnrotected($TheObject)
     {
