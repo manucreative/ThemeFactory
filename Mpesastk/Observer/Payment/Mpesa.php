@@ -47,24 +47,6 @@ class Mpesa implements \Magento\Framework\Event\ObserverInterface
             $order->setStatus('processing');
             $order->save();
 
-            // $invoice = $this->_invoiceService->prepareInvoice($order);
-            // $invoice->register();
-            // $invoice->save();
-            // $transactionSave = $this->_transaction->addObject(
-            //     $invoice
-            // )->addObject(
-            //     $invoice->getOrder()
-            // );
-            // $transactionSave->save();
-            //$this->invoiceSender->send($invoice);
-            //send notification code
-
-            
-            // $order->addStatusHistoryComment(
-            //     __('Notified customer about invoice #%1.', $invoice->getId())
-            // )
-            //     ->setIsCustomerNotified(true)
-            //     ->save();
 
         }
     }
