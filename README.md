@@ -58,8 +58,8 @@
   - The above command will convert POS orders to magento orders always in the background.
 
 ### Link to main Mpesa Stk Payment 
-[Mpesa Payment Module](https://github.com/manucreative/ThemeFactory/tree/main/Mpesastk)
-[Task Invoice Management System](https://github.com/manucreative/ThemeFactory/tree/main/Tims)
+1. [Mpesa Payment Module](https://github.com/manucreative/ThemeFactory/tree/main/Mpesastk)
+2. [Task Invoice Management System](https://github.com/manucreative/ThemeFactory/tree/main/Tims)
 
 
 
