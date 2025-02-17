@@ -1,0 +1,23 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Config:etc/system_file.xsd">
+    <system>
+        <section id="payment">
+                <group id="themeFactory_mpesastk" translate="label" sortOrder="60" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Mpesa Stk Push</label>
+                    <field id="active" translate="label comment" sortOrder="1" type="select" showInDefault="1" showInWebsite="1" showInStore="0">
+                        <label>Enable</label>
+                        <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                    </field>
+
+                    <field id="title" translate="label" type="text" sortOrder="2" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Title</label>
+                    </field>
+
+                    <field id="tillNumber" translate="label" type="text" sortOrder="3" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Till Number</label>
+                    <comment>To be provided Once</comment>
+                </field>
+                </group>
+        </section>
+    </system>
+</config>

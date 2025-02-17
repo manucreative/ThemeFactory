@@ -1,0 +1,30 @@
+.floating-action-button {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    z-index: 1000;
+}
+
+#fab-button {
+    background-color: #ff4081;
+    color: #fff;
+    border: none;
+    border-radius: 50%;
+    width: 80px;
+    height: 61px;
+    box-shadow: 0 10px 10px rgba(0, 0, 0, 0.3);
+    cursor: pointer;
+}
+
+#fab-button:hover {
+    background-color: #ff1c63;
+}
+
+.modal-popup .modal-header {
+  text-align: center;
+}
+
+.modal-popup .modal-title {
+      font-weight: 700;
+      font-size: 30px;
+}

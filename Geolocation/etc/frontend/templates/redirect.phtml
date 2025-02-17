@@ -1,0 +1,43 @@
+<button id="open-store-selection-popup" style="display:none;">Select Store</button>
+
+<div id="store-selection-popup" style="display:none;">
+    <h2>Select a Store</h2>
+    <ul id="store-list">
+        <?php foreach ($block->getStores() as $store): ?>
+            <li><a href="<?= $store['url'] ?>"><?= $store['name'] ?></a></li>
+        <?php endforeach; ?>
+    </ul>
+</div>
+
+<script type="text/javascript">
+    require([
+        'jquery',
+        'Magento_Ui/js/modal/modal'
+    ], function($, modal) {
+        $(document).ready(function() {
+            var options = {
+                type: 'popup',
+                responsive: true,
+                innerScroll: true,
+                title: 'Select a Store',
+                buttons: [{
+                    text: $.mage.__('Close'),
+                    class: '',
+                    click: function () {
+                        this.closeModal();
+                    }
+                }]
+            };
+
+            var popup = modal(options, $('#store-selection-popup'));
+
+            // Automatically open the modal when the page loads
+            $('#store-selection-popup').modal('openModal');
+
+            // Show the button to manually open the modal (if needed)
+            $('#open-store-selection-popup').show().on('click', function() {
+                $('#store-selection-popup').modal('openModal');
+            });
+        });
+    });
+</script>

@@ -1,0 +1,7 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:Menu/etc/menu.xsd">
+    <menu>
+        <add id="Manwiks_Geolocation::main_menu" title="GeoIP Stores" module="Manwiks_Geolocation" sortOrder="20" resource="Manwiks_Geolocation::urlgeolocation"/>
+        <add id="Manwiks_Geolocation::geo_url" title="Geo URL" module="Manwiks_Geolocation" sortOrder="10" parent="Manwiks_Geolocation::main_menu" action="urlgeolocation/storeurlrewrite/index" resource="Manwiks_Geolocation::urlgeolocation"/>
+    </menu>
+</config>

@@ -1,0 +1,89 @@
+ <?php if($block->isEnabled() && $block->showFab()): ?> 
+<div id="fab" class="floating-action-button">
+    <button id="fab-button">Find Nearby Stores</button>
+</div>
+
+<!-- Store Selection Popup -->
+<div id="store-selection-popup-fab" class="store-selection-popup" style="display: none;">
+    <!-- <h2>List of Alladin shops near you</h2> -->
+    <br>
+    <div id="store-list-fab"></div>
+</div>
+<script type="text/javascript">
+    require(['jquery', 'Magento_Ui/js/modal/modal'], function ($, modal) {
+        $(document).ready(function () {
+            function checkLocation(lat, lng) {
+                var screenWidth = window.innerWidth || document.documentElement.clientWidth || document.body.clientWidth;
+                var screenHeight = window.innerHeight || document.documentElement.clientHeight || document.body.clientHeight;
+                var popupWidth = 800;
+                var popupHeight = 600;
+                var left = (screenWidth - popupWidth) / 2;
+                var top = (screenHeight - popupHeight) / 2;
+
+                var googleMapsUrl = 'https://www.google.com/maps?q=' + lat + ',' + lng + '&z=15';
+                window.open(googleMapsUrl, '_blank', 'width=' + popupWidth + ',height=' + popupHeight + ',left=' + left + ',top=' + top);
+            }
+
+            $('#fab-button').on('click', function () {
+                var options = {
+                    type: 'popup',
+                    responsive: true,
+                    innerScroll: true,
+                    clickableOverlay: false,
+                    title: '<?= $block->escapeHtml($block->getPopupTitle()) ?>',
+                    buttons: [{
+                        text: $.mage.__('Close'),
+                        class: '',
+                        click: function () {
+                            this.closeModal();
+                        }
+                    }]
+                };
+
+                var popup = modal(options, $('#store-selection-popup-fab'));
+
+                $.ajax({
+                    url: '<?php echo $block->getMyUrl(); ?>',
+                    type: 'GET',
+                    dataType: 'json',
+                    success: function (response) {
+                        var storeList = $('#store-list-fab');
+                        storeList.empty();
+                        if (response.stores && response.stores.length > 0) {
+                            $.each(response.stores, function (index, store) {
+                                storeList.append(
+                                    '<div class="row">' +
+                                    '<div style="text-align: center;" class="col-sm-12">' +
+                                        '<a href="' + store.url + '">' +
+                                        '<h3 style="text-decoration: underline;">' + store.name + '</h3>' +
+                                        '<p>' + store.location + '</p>'+
+                                        '</a>' +
+                                    '</div>' +
+                                    '<div style="text-align: center;" class="col-sm-12">' +
+                                        '<button class="primary check-location-btn" data-lat="' + store.lat + '" data-lng="' + store.lng + '">Check Location on Google Maps</button>' +
+                                    '</div>' +
+                                    '</div>' +
+                                    '<hr>'
+                                );
+                            });
+                        } else {
+                            storeList.append('<li>No stores available</li>');
+                        }
+                        $('#store-selection-popup-fab').modal('openModal');
+                    },
+                });
+            });
+
+            // Event delegation for dynamically added buttons
+            $(document).on('click', '.check-location-btn', function () {
+                var lat = $(this).data('lat');
+                var lng = $(this).data('lng');
+                checkLocation(lat, lng);
+            });
+        });
+    });
+</script>
+
+
+</script>
+   <?php endif; ?>

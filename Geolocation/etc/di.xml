@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<!--
+/** Geo Url di xml
+ * @category  GeoIp
+ * @package   Url_Grid
+ * @author    Manwiks
+ */
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+    <preference for="Manwiks\Geolocation\Api\Data\UrlRewriteInterface" type="Manwiks\Geolocation\Model\UrlRewrite" />
+    <virtualType name="Manwiks\Geolocation\Model\ResourceModel\UrlRewrite\Collection" type="Magento\Framework\View\Element\UiComponent\DataProvider\SearchResult">
+        <arguments>
+            <argument name="mainTable" xsi:type="string">manwiks_geo_ip</argument>
+            <argument name="resourceModel" xsi:type="string">Manwiks\Geolocation\Model\ResourceModel\UrlRewrite</argument>
+        </arguments>
+    </virtualType>
+    <type name="Magento\Framework\View\Element\UiComponent\DataProvider\CollectionFactory">
+        <arguments>
+            <argument name="collections" xsi:type="array">
+                <item name="urlgeolocation_listing_data_source" xsi:type="string">Manwiks\Geolocation\Model\ResourceModel\UrlRewrite\Collection</item>
+            </argument>
+        </arguments>
+    </type>
+</config>

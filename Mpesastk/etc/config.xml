@@ -1,0 +1,16 @@
+<?xml version="1.0"?>
+
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Store:etc/config.xsd">
+    <default>
+        <payment>
+            <themeFactory_mpesastk>
+                <active>1</active>
+                <model>ThemeFactory\Mpesastk\Model\Payment\Payment</model>
+                <title>Online Mpesa stk</title>
+                <order_status>pending</order_status>
+                <allowspecific>0</allowspecific>
+                <min_order_total>0.01</min_order_total>
+            </themeFactory_mpesastk>
+        </payment>
+    </default>
+</config>

@@ -1,0 +1,49 @@
+<!-- view/frontend/templates/store-popup.phtml -->
+<?php if(!$block->isDefault() && $block->showPopup()): ?>
+<div id="store-popup" style="display: none;" data-lat="<?= $block->escapeHtml($block->getStoreData()['lat']) ?>" 
+    data-lng="<?= $block->escapeHtml($block->getStoreData()['lng']) ?>"
+    data-name="<?= $block->escapeHtml($block->getStoreData()['name']) ?>">
+    <br>
+        <h2 style="text-align: center;">In-Mall Location</h2>
+        <p style="text-align: center;"><?= $block->escapeHtml($block->getStoreData()['location']) ?> </p>
+    <hr>
+    <h2 style="text-align: center;"><?= $block->escapeHtml($block->getStoreData()['name']) ?> Discounts and Promotions</h2>
+    <?php if($block->getCatalogPromotions() || $block->getCartPromotions()){ ?>
+    <ul style="text-align:center;">
+        <?php foreach ($block->getCatalogPromotions() as $promotion): ?>
+            <li>
+                <strong><?= $block->escapeHtml($promotion['name']) ?></strong>
+                <p><?= $block->escapeHtml($promotion['description']) ?></p>
+            </li>
+        <?php endforeach; ?>
+    </ul>
+    <hr>
+    <ul style="text-align:center;">
+        <?php foreach ($block->getCartPromotions() as $promotion): ?>
+            <li>
+                <strong><?= $block->escapeHtml($promotion['name']) ?></strong>
+                <p><?= $block->escapeHtml($promotion['description']) ?></p>
+            </li>
+        <?php endforeach; ?>
+    </ul>
+    <?php } else { ?>
+    <p style="text-align: center;"><?= __('No Promotions at the moment'); ?></p>
+<?php } ?>
+    <hr>
+    <div style="text-align: center;">
+    <button class="btn btn-info" id="get-directions">Get <?= $block->escapeHtml($block->getStoreData()['name']) ?> Directions on Google Maps</button>
+    </div>
+</div>
+
+<script type="text/javascript">
+    require(['Manwiks_Geolocation/js/store-popup'], function(storePopup) {
+        storePopup({
+            shouldDisplayPopup: <?= $block->checkAndDisplayPopup() ? 'true' : 'false' ?>,
+            storeName: '<?= $block->escapeHtml($block->getStoreData()['name']) ?>',
+            lat: '<?= $block->getStoreData()['lat'] ?>',
+            lng: '<?= $block->getStoreData()['lng'] ?>',
+            storeId: '<?= $block->getStoreId() ?>'
+        });
+    });
+</script>
+<?php endif; ?>

@@ -1,0 +1,61 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:Config/etc/system_file.xsd">
+    <system>
+        <tab id="geolocation" translate="label" sortOrder="8">
+            <label>GeoIP Redirection Rules</label>
+        </tab>
+        <section id="geolocation_section" translate="label" sortOrder="100" showInDefault="1" showInWebsite="1" showInStore="1">
+            <label>Redirection Settings</label>
+            <tab>geolocation</tab>
+            <resource>Manwiks_Geolocation::config</resource>
+            <group id="general" translate="label" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
+                <label>General</label>
+                <field id="enable" translate="label" type="select" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Enable</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+                <field id="api_key" translate="label" type="text" sortOrder="20" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>IPGeolocation API Key</label>
+                </field>
+                <field id="block_ip" translate="label" type="text" sortOrder="30" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Block the IPs</label>
+                    <comment>List of IPs to be blocked for GeoIP. Example: 192.168.54.26, 168.145.2.40, 192...</comment>
+                     <depends>
+                        <field id="store_popup">1</field>
+                    </depends>
+                </field>
+                <field id="fab" translate="label" type="select" sortOrder="40" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Display Floating button (FAB)</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                    <comment>Show Floating butting to choose nearby shops on frontend</comment>
+                </field>
+                <field id="store_popup" translate="label" type="select" sortOrder="50" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Display Store Popup</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                    <comment>Show a popup when a user lands to a new store</comment>
+                </field>
+                <field id="popup_show_time" translate="label" type="text" sortOrder="60" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Popup to show again after howlong?</label>
+                    <comment>Should be set in Seconds</comment>
+                     <depends>
+                        <field id="store_popup">1</field>
+                    </depends>
+                </field>
+            </group>
+            <group id="popup" translate="label" sortOrder="15" showInDefault="1" showInWebsite="1" showInStore="1">
+                <label>Store Switcher Popup Settings</label>
+                <field id="isActive" translate="label" type="select" sortOrder="5" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Display Store Switcher Popup</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+                <field id="popup_title" translate="label" type="text" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Store Switcher Popup Title</label>
+                    <depends>
+                        <field id="isActive">1</field>
+                    </depends>
+                </field>
+
+            </group>
+        </section>
+    </system>
+</config>

@@ -1,0 +1,12 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:Config/etc/config.xsd">
+    <default>
+        <geolocation_section>
+            <general>
+                <enable>1</enable>
+                <api_key>dd1f47da804741cf806e3f53decf792d</api_key>
+                <redirection_rules>{}</redirection_rules>
+            </general>
+        </geolocation_section>
+    </default>
+</config>

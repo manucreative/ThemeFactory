@@ -1,0 +1,29 @@
+.contact-modal-class .modal-inner-wrap {
+/*max-width: '1000px'!important;*/
+}
+
+.contact-modal-class .modal-title {
+    text-align: center !important;
+}
+
+
+.success-modal-class .modal-inner-wrap {
+/*    max-width: '1000px'!important;*/
+}
+
+.success-modal-class .modal-title {
+    text-align: center !important;
+
+}
+
+#successProcess {
+    font-size: 24px;
+    text-align: center;
+    margin-top: 10px; /* Adjust spacing from top */
+}
+
+.count_down {
+    font-size: 24px;
+    text-align: center;
+    margin-top: 10px; 
+}

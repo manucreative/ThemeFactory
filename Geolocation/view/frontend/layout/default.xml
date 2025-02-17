@@ -1,0 +1,29 @@
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <head>
+        <css src="Manwiks_Geolocation::css/fab.css"/>
+        <script src="Manwiks_Geolocation::js/fabGeo.js"/>
+    </head>
+    <body>
+        <referenceContainer name="before.body.end">
+            <block class="Manwiks\Geolocation\Block\StoreSelector" name="store_selection_popup" template="Manwiks_Geolocation::redirect.phtml"/>
+        </referenceContainer>
+        <referenceContainer name="content">
+            <block class="Manwiks\Geolocation\Block\Fab" name="nearby.stores.fab" template="Manwiks_Geolocation::fab.phtml"/>
+        </referenceContainer>
+        <referenceContainer name="content">
+            <block class="Manwiks\Geolocation\Block\StorePopup" name="store_popup" template="Manwiks_Geolocation::store-popup.phtml"/>
+        </referenceContainer>
+        <referenceBlock name="head.additional">
+            <block class="Magento\Framework\View\Element\Text" name="store_popup_js">
+                <!-- <action method="setIsScript"><argument>1</argument></action> -->
+                <action method="setContents">
+                    <argument name="contents" xsi:type="string">
+                        <![CDATA[
+                        <script type="text/javascript" src="<?= $block->getViewFileUrl('Manwiks_Geolocation::js/store-popup.js') ?>"></script>
+                        ]]>
+                    </argument>
+                </action>
+            </block>
+        </referenceBlock>
+    </body>
+</page>
